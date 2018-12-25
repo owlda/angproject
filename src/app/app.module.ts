@@ -2,18 +2,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatInputModule } from '@angular/material';
-import { MatCardModule, MatButtonModule, MatToolbarModule } from '@angular/material';
+import { MatInputModule, MatExpansionPanel } from '@angular/material';
+import { MatCardModule, MatButtonModule, MatToolbarModule, MatExpansionModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { CreatePostComponent } from './posts/create-post/create-post.component';
 import { HeaderComponent } from './header/header.component';
+import { ListPostComponent } from './list-post/list-post.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreatePostComponent,
-    HeaderComponent
+    HeaderComponent,
+    ListPostComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +24,8 @@ import { HeaderComponent } from './header/header.component';
     MatInputModule,
     MatCardModule,
     MatButtonModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatExpansionModule
     ],
   providers: [],
   bootstrap: [AppComponent]
