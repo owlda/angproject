@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { templateJitUrl } from '@angular/compiler';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { Post } from '../../app.model';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -9,10 +10,16 @@ import { templateJitUrl } from '@angular/compiler';
 })
 
 export class CreatePostComponent {
-  enteredValue = '';
-  NewPost = 'Input your text here';
-  AddPost() {
-    this.NewPost = this.enteredValue;
+  @Output() eventPostCreated = new EventEmitter<Post>();
+  AddPost(form: NgForm) {
+    if (form.invalid) {
+      return;
+    }
+    const list: Post = {
+      title: form.value.title,
+      content: form.value.content
+    };
+    this.eventPostCreated.emit(list);
   }
 
 }
