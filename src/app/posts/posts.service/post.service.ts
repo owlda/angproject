@@ -21,6 +21,11 @@ export class PostService {
   GetPostUpdateListener() {
     return this.postsUpdated.asObservable();
   }
+
+  GetPostUpdateInfos() {
+    return this.postsUpdated.asObservable();
+  }
+
   AddPost(title: string, content: string) {
     const post: Post = {id: null, title: title, content: content};
     // adding a post to the express
