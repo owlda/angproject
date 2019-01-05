@@ -1,5 +1,9 @@
 const express = require('express');
 const app = express();
+const BodyParser = require('body-parser');
+
+app.use(BodyParser.json());
+app.use(BodyParser.urlencoded({extended:false}));
 app.use((request, reponse, next)=>{
   reponse.setHeader("Access-Control-Allow-Origin", "*");
   reponse.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -20,5 +24,8 @@ app.use('/posts', (request, reponse, next)=>{
      posts:posts
    });
 })
+app.post("/post", (request, reponse, next)=>{
+const posts = request.body;
+});
 
 module.exports = app;
