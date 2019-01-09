@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class PostService {
   private posts: Post[] = [];
   private postsUpdated = new Subject<Post[]>();
+  private postsObs = new Subject();
   // HTTP constructor initialized
   constructor(private http: HttpClient) {}
   // GET methode to take the posts from express server
@@ -23,7 +24,7 @@ export class PostService {
   }
 
   GetPostUpdateInfos() {
-    return this.postsUpdated.asObservable();
+    return this.postsObs.asObservable();
   }
 
   AddPost(title: string, content: string) {
