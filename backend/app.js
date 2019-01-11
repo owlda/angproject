@@ -6,9 +6,9 @@ const mongoose = require('mongoose');
 //post model
 const Post = require('./models/post');
 //connection string to MongoDB cluster
-mongoose.connect("mongodb+srv://userdb:96560023_ad@clustermdb-wbnah.mongodb.net/test?retryWrites=true").then(()=>{
+mongoose.connect("mongodb+srv://userdb:96560023_ad@clustermdb-wbnah.mongodb.net/angular-db?retryWrites=true").then(() => {
   console.log('Connection to database was successully.');
-}).catch(()=>{
+}).catch(() => {
   console.log('Connection to database was failed.');
 });
 //body parser using
@@ -20,6 +20,17 @@ app.use((request, reponse, next)=>{
   reponse.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   reponse.setHeader("Access-Control-Allow-Methodes", "GET, POST, DELETE, OPTIONS, PATCH");
   next();
+});
+
+// method to save post to db
+app.post("/posts", (request, reponse, next)=>{
+  const post = new Post({
+    title: request.body.title,
+    content: request.body.content
+  });
+  post.save();
+  console.log(post);
+  reponse.status(201).json({message:"successfully added the post!"});
 });
 
 app.use('/posts', (request, reponse, next)=>{
@@ -35,14 +46,9 @@ app.use('/posts', (request, reponse, next)=>{
      message:"successfully!",
      posts:posts
    });
-})
-app.post("/post", (request, reponse, next)=>{
-  const post = new Post({
-    title: request.body.title,
-    content: request.body.content
-  });
-console.log(post);
-reponse.status(201).json({message:"successfully added the post!"}
-)
 });
+
+
+
+
 module.exports = app;
