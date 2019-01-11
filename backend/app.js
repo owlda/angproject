@@ -22,7 +22,7 @@ app.use((request, reponse, next)=>{
   next();
 });
 
-// method to save post to db
+// method to save post to db Mongo Atlas
 app.post("/posts", (request, reponse, next)=>{
   const post = new Post({
     title: request.body.title,
