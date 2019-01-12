@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const Post = require('./models/post');
 
 //Connection string to MongoDB cluster
-mongoose.connect("mongodb+srv://userdb:96560023_ad@clustermdb-wbnah.mongodb.net/angular-db?retryWrites=true").then(() => {
+mongoose.connect("mongodb+srv://userdb:96560023_ad@clustermdb-wbnah.mongodb.net/angular-db?retryWrites=true", { useNewUrlParser: true }).then(() => {
   console.log('Connection to database was successully.');
 }).catch(() => {
   console.log('Connection to database was failed.');
