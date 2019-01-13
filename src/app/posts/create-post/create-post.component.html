@@ -21,9 +21,7 @@
         #errorContent="ngModel">Message</textarea>
         <mat-error *ngIf="errorContent.invalid">Please enter the content of the post</mat-error>
       </mat-form-field>
-      <button type="submit"
-      mat-raised-button
-      color="primary">Save</button>
+      <button  matTooltip ="Save the post" type="submit" mat-raised-button color="primary">Save</button>
       <p>{{info}}</p>
   </form>
 </mat-card>

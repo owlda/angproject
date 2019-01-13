@@ -2,6 +2,8 @@ import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { Post } from '../app.model';
 import { PostService } from '../posts/posts.service/post.service';
 import { Subscription } from 'rxjs';
+import { IconSvgComponent } from '../icon-svg/icon-svg.component';
+
 
 @Component ({
   selector: 'app-list-component',
@@ -14,6 +16,7 @@ export class ListPostComponent implements OnInit, OnDestroy {
   private postSubsribtor: Subscription;
 
   constructor (public postService: PostService ) {}
+
 
   ngOnInit() {
        this.postService.GetPosts();

@@ -9,13 +9,17 @@ import { AppComponent } from './app.component';
 import { CreatePostComponent } from './posts/create-post/create-post.component';
 import { HeaderComponent } from './header/header.component';
 import { ListPostComponent } from './list-post/list-post.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatIconModule } from '@angular/material/icon';
+import { IconSvgComponent } from './icon-svg/icon-svg.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreatePostComponent,
     HeaderComponent,
-    ListPostComponent
+    ListPostComponent,
+    IconSvgComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,9 @@ import { ListPostComponent } from './list-post/list-post.component';
     MatButtonModule,
     MatToolbarModule,
     MatExpansionModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTooltipModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
