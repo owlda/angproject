@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule, MatExpansionPanel } from '@angular/material';
@@ -27,7 +27,7 @@ import { ListPostComponent } from './list-post/list-post.component';
     MatToolbarModule,
     MatExpansionModule,
     HttpClientModule
-    ],
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

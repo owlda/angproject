@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Post} from './app.model';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-root',

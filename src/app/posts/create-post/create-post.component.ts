@@ -20,7 +20,7 @@ export class CreatePostComponent {
       return;
     }
     this.postService.AddPost(form.value.title, form.value.content);
-    this.info = 'new post';
+    this.info = 'new post added now';
     this.postInfo = this.postService.GetPostUpdateInfos().subscribe((this.observer));
     form.resetForm();
   }

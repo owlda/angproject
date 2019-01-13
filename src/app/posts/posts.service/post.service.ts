@@ -15,11 +15,18 @@ export class PostService {
   // GET method to take the posts from express server
   GetPosts() {
     this.http.get<{id: string, message: string, posts: any}>('http://localhost:3000/posts')
-    .pipe(map((postData) => { return postData.posts.map(post => {return {id: post._id, title: post.title, content: post.content };
+    .pipe(map((postData) => {
+      return postData.posts.map(post => {
+        return {
+          title: post.title,
+          content: post.content,
+          id: post._id
+        };
       });
     }))
     .subscribe((postSubscribed) => {
-             this.posts = postSubscribed.posts;
+             // this.posts = parameter of subscribe
+             this.posts = postSubscribed;
              this.postsUpdated.next([...this.posts]);
     });
   }
@@ -43,7 +50,7 @@ export class PostService {
   }
   // DELETE method to delete a post from express server
   DeletePost(postID: string) {
-    this.http.delete('http://localhost:3000/posts' + postID).subscribe(() => {
+    this.http.delete('http://localhost:3000/posts/' + postID).subscribe(() => {
       console.log('Post was deleted');
     });
   }
