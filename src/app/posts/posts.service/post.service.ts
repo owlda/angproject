@@ -42,8 +42,9 @@ export class PostService {
   AddPost(title: string, content: string) {
     const post: Post = {id: null, title: title, content: content};
     // adding a post to the express
-    this.http.post<{message: string}>('http://localhost:3000/posts', post).subscribe((reponseData) => {
-      console.log(reponseData.message);
+    this.http.post<{message: string, postID: string}>('http://localhost:3000/posts', post).subscribe((reponseData) => {
+      const id = reponseData.postID;
+      post.id = id;
       this.posts.push(post);
       this.postsUpdated.next([...this.posts]);
     });
@@ -51,7 +52,9 @@ export class PostService {
   // DELETE method to delete a post from express server
   DeletePost(postID: string) {
     this.http.delete('http://localhost:3000/posts/' + postID).subscribe(() => {
-      console.log('Post was deleted');
+      const updatedPosts = this.posts.filter(post => post.id !== postID);
+      this.posts = updatedPosts;
+      this.postsUpdated.next([...this.posts]);
     });
   }
 }

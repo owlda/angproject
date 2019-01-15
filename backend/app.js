@@ -32,8 +32,14 @@ app.post("/posts", (request, reponse, next)=>{
     title: request.body.title,
     content: request.body.content
   });
-  post.save();
-  reponse.status(201).json({message:"successfully added the post!"});
+  post.save().then(createdID => {
+    reponse.status(201).json({
+      message:"successfully added the post!",
+      postID: createdID._id
+    });
+
+  });
+
 });
 // Method to delete the post from Mongo db Atlas
 app.delete("/posts/:id", (request, reponse, next) => {
