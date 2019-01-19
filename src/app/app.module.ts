@@ -12,6 +12,8 @@ import { ListPostComponent } from './list-post/list-post.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
 import { IconSvgComponent } from './icon-svg/icon-svg.component';
+import { RouterModule } from '@angular/router';
+import { AppRoutingComponent } from './app.routing.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { IconSvgComponent } from './icon-svg/icon-svg.component';
     IconSvgComponent
   ],
   imports: [
+    RouterModule,
+    AppRoutingComponent,
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
@@ -33,6 +37,7 @@ import { IconSvgComponent } from './icon-svg/icon-svg.component';
     HttpClientModule,
     MatTooltipModule,
     MatIconModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

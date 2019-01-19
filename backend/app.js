@@ -18,7 +18,7 @@ app.use(BodyParser.json());
 app.use(BodyParser.urlencoded({extended:false}));
 
 //application access throught out
-app.use((request, reponse, next)=>{
+app.use((request, reponse, next) => {
   reponse.setHeader("Access-Control-Allow-Origin", "*");
   reponse.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   reponse.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, OPTIONS, PATCH");
@@ -27,7 +27,7 @@ app.use((request, reponse, next)=>{
 });
 
 // Method to save post to db Mongo Atlas
-app.post("/posts", (request, reponse, next)=>{
+app.post("/posts", (request, reponse, next) => {
   const post = new Post({
     title: request.body.title,
     content: request.body.content
