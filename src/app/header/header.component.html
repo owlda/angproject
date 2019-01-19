@@ -1,2 +1,9 @@
 <mat-toolbar color="primary">
-  <span>Create a post in this theme:</span>
+  <ul>
+    <li>
+      <a mat-button routerLink="/create" color="warn">Create post</a>
+    </li>
+  </ul>
+  <!-- <span class="incognito"> </span> -->
+  <span><a mat-button [routerLink]="['/']" routerLinkActive="router-link-active" >My posts</a></span>
+</mat-toolbar>
