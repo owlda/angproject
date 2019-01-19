@@ -7,3 +7,9 @@ margin: auto;
   margin-top: 2%;
 
 }
+h1 {
+  background-image: url("../assets/img/vmtl.png");
+  height: 5.5em;
+  background-repeat: no-repeat;
+  font-size: 1.9em;
+}
