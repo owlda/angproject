@@ -12,7 +12,13 @@ import { IconSvgComponent } from '../icon-svg/icon-svg.component';
 
 })
 export class ListPostComponent implements OnInit, OnDestroy {
-  listComponents: Post[] = [];
+  private _posts: Post[] = [];
+  public get posts(): Post[] {
+    return this._posts;
+  }
+  public set posts(value: Post[]) {
+    this._posts = value;
+  }
   private postSubsribtor: Subscription;
 
   constructor (public postService: PostService ) {}
@@ -22,7 +28,7 @@ export class ListPostComponent implements OnInit, OnDestroy {
        this.postService.GetPosts();
        this.postSubsribtor = this.postService.GetPostUpdateListener()
        .subscribe((posts: Post[]) => {
-                  this.listComponents = posts;
+                  this.posts = posts;
        });
   }
   ngOnDestroy() {

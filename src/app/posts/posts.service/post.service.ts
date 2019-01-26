@@ -38,6 +38,10 @@ export class PostService {
   GetPostUpdateInfos() {
     return this.postsObs.asObservable();
   }
+  // Methode to get post by id
+  GetPost(id: string) {
+    return {...this.posts.find(p => p.id === id) };
+  }
   // ADD method to adding a posts to express server from angular
   AddPost(title: string, content: string) {
     const post: Post = {id: null, title: title, content: content};

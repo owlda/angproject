@@ -5,7 +5,7 @@
           <input matInput
           type="text"
           name="title"
-          ngModel
+          [ngModel]
           required
           minlength="4"
           #errorTitle="ngModel">
@@ -16,7 +16,7 @@
         type="text"
         rows="5"
         name="content"
-        ngModel
+        [ngModel]
         required
         #errorContent="ngModel">Message</textarea>
         <mat-error *ngIf="errorContent.invalid">Please enter the content of the post</mat-error>
