@@ -8,7 +8,8 @@ import { CreatePostComponent } from './posts/create-post/create-post.component';
 const routes: Routes = [
    // the list of objects with the attributes such as path and a component
   { path: '', component: ListPostComponent },
-  { path: 'create', component: CreatePostComponent }
+  { path: 'create', component: CreatePostComponent },
+  { path: 'edit/:postID', component: CreatePostComponent }
 ];
 
 @NgModule({
